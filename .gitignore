@@ -1,0 +1,122 @@
+# ==============================================================================
+# DaashTics Monorepo - Production Git Ignore Configuration
+# Melindungi file sensitif, dependensi lokal, artefak build, dan cache
+# ==============================================================================
+
+# --- KREDENSIAL & FILE SENSITIF (CRITICAL ZERO-TRUST) ---
+# Jangan pernah commit berkas konfigurasi lingkungan nyata
+.env
+.env.*
+*.env
+*.env.*
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+backend/.env
+frontend/.env
+frontend/.env.local
+!*.env.example
+!**/*.env.example
+
+# --- DEPENDENSI NODE.JS & BUILD ARTIFACTS (FRONTEND) ---
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+out/
+**/out/
+.swc/
+**/.swc/
+build/
+dist/
+.pnp
+.pnp.js
+*.tsbuildinfo
+next-env.d.ts
+
+# --- LINGKUNGAN VIRTUAL & DEPENDENSI PYTHON (BACKEND) ---
+venv/
+**/venv/
+.venv/
+**/.venv/
+env/
+**/env/
+ENV/
+env.bak/
+venv.bak/
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# --- PYTHON CACHE & BYTECODE ---
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- DATABASE & LOCAL STORAGE ---
+traffic_analysis.db
+traffic_counting.db
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+instance/
+postgres_data/
+**/postgres_data/
+
+# --- MACHINE LEARNING, RUNS & ARTEFAK COMPUTER VISION ---
+# Hindari commit hasil training eksperimen YOLO
+runs/
+**/runs/
+*.onnx
+*.engine
+*.tflite
+
+# File frame sementara & video output/rekaman uji coba
+last_resized_frame.jpg
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+!**/static/uploads/.gitkeep
+
+# --- LOG & TESTING ---
+*.log
+logs/
+**/logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# --- SISTEM OPERASI & LOKAL LAPTOP/EDITOR ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+powershell.cmd
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
